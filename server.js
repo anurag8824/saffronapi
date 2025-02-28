@@ -4,7 +4,7 @@ const axios = require('axios'); // Importing axios for making
 
 // Create a route that sends a response when visiting the homepage
 app.get('/', (req, res) => {
-    res.send('<h1>Hello, Express.js Serverhhjh!</h1>');
+    res.send('<h1>Hello, Express.js</h1>');
 });
 
 app.get("/tablelist", async (req, res) => {
