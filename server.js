@@ -4,7 +4,7 @@ const axios = require('axios'); // Importing axios for making
 
 // Create a route that sends a response when visiting the homepage
 app.get('/', (req, res) => {
-    res.send('<h1>Hello, Express.js</h1>');
+    res.send('<h1>Hello, Express.js Added today </h1>');
 });
 
 app.get("/tablelist", async (req, res) => {
@@ -178,15 +178,43 @@ app.get("/allMatchUsingSports/:sid", async (req, res) => {
 
 //get live tv
 
-app.get("/liveTv/:gmid", async (req, res) => {
-    const gameId = req.params.gmid
+app.get("/liveTv/:mid", async (req, res) => {
+    const matchId = req.params.mid
+
+    //eventid is matchid
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/tv?gmid=${gameId}`, {
-            headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
-                }
-        });
+        const response = await axios.get(`https://hr08bets.in/cricket-stream-live/index.html?eventid=${matchId}`);
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching table list:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+    }
+});
+
+
+
+app.get("/liveTvforall/:mid", async (req, res) => {
+    const matchId = req.params.mid
+    //eventid is matchid
+    try {
+        const response = await axios.get(`https://hr08bets.in/sports-stream-live/index.html?eventid=${matchId}`);
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching table list:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+    }
+});
+
+
+
+app.get("/livescore/:mid", async (req, res) => {
+    const matchId = req.params.mid
+    //eventid is matchid
+    try {
+        const response = await axios.get(`https://score.hr08bets.in/api?eventid=${matchId}`);
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
