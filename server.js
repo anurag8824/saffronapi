@@ -1,11 +1,22 @@
 const express = require('express'); // Importing express
 const app = express(); // Creating an express app
 const axios = require('axios'); // Importing axios for making
-
+const cors = require('cors')
 // Create a route that sends a response when visiting the homepage
+
+
+
+app.use(cors({
+    origin: "*",
+}));
+
+
 app.get('/', (req, res) => {
     res.send('<h1>Hello, Express.js Added today 1039 </h1>');
 });
+
+
+
 
 app.get("/tablelist", async (req, res) => {
     try {
