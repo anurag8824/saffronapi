@@ -4,14 +4,14 @@ const axios = require('axios'); // Importing axios for making
 
 // Create a route that sends a response when visiting the homepage
 app.get('/', (req, res) => {
-    res.send('<h1>Hello, Express.js Added today </h1>');
+    res.send('<h1>Hello, Express.js Added today 1039 </h1>');
 });
 
 app.get("/tablelist", async (req, res) => {
     try {
         const response = await axios.get("http://45.198.14.150:8085/casino/tableid", {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
             }
         });
@@ -29,7 +29,7 @@ app.get("/iframe/:id", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/casino/tv_url?id=${casinoid}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
             }
         });
@@ -49,7 +49,7 @@ app.get("/tabledata/:id", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/casino/data?type=${casinoid}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
             }
         });
@@ -67,7 +67,7 @@ app.get("/casinoresult/:id", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/casino/result?type=${casinoid}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
             }
         });
@@ -86,7 +86,7 @@ app.get("/detailresult/:id/:mid", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
             }
         });
@@ -106,7 +106,7 @@ app.get("/allSportsList", async (req, res) => {
     try {
         const response = await axios.get("http://45.198.14.150:8085/sports/allSportid", {
                 headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -126,7 +126,7 @@ app.get("/gameDetails/:sid/:gmid", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/sports/getDetailsData?sid=${sportId}&gmid=${gameId}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -146,7 +146,7 @@ app.get("/allMatchData/:sid/:gmid", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/sports/getPriveteData?sid=${sportId}&gmid=${gameId}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -165,7 +165,7 @@ app.get("/allMatchUsingSports/:sid", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/sports/esid?sid=${sportId}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -178,13 +178,17 @@ app.get("/allMatchUsingSports/:sid", async (req, res) => {
 
 //get live tv
 
-app.get("/liveTv/:mid", async (req, res) => {
-    const matchId = req.params.mid
+//get live tv
 
-    //eventid is matchid
+app.get("/liveTv/:gmid", async (req, res) => {
+    const gameId = req.params.gmid
 
     try {
-        const response = await axios.get(`https://hr08bets.in/cricket-stream-live/index.html?eventid=${matchId}`);
+        const response = await axios.get(`http://45.198.14.150:8085/sports/tv?gmid=${gameId}`, {
+            headers: {
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                }
+        });
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -195,33 +199,8 @@ app.get("/liveTv/:mid", async (req, res) => {
 
 
 
-app.get("/liveTvforall/:mid", async (req, res) => {
-    const matchId = req.params.mid
-    //eventid is matchid
-    try {
-        const response = await axios.get(`https://hr08bets.in/sports-stream-live/index.html?eventid=${matchId}`);
-        res.json(response.data);
-        console.log("Fetched Data:", response);
-    } catch (error) {
-        console.error("Error fetching table list:", error.response?.data || error.message);
-        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
-    }
-});
 
 
-
-app.get("/livescore/:mid", async (req, res) => {
-    const matchId = req.params.mid
-    //eventid is matchid
-    try {
-        const response = await axios.get(`https://score.hr08bets.in/api?eventid=${matchId}`);
-        res.json(response.data);
-        console.log("Fetched Data:", response);
-    } catch (error) {
-        console.error("Error fetching table list:", error.response?.data || error.message);
-        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
-    }
-});
 
 
 //get all game details 
@@ -232,7 +211,7 @@ app.get("/allGameDetails", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/sports/tree`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -253,7 +232,7 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
     try {
         const response = await axios.get(`http://45.198.14.150:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
         });
         res.json(response.data);
@@ -272,7 +251,7 @@ app.post("/resultone", async (req, res) => {
     try {
         const response = await axios.post(`http://45.198.14.150:8085/sports/result`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 },
             body: {
                 team_one: team_one,
@@ -297,7 +276,7 @@ app.post("/resulttwo", async (req, res) => {
     try {
         const response = await axios.post(`http://45.198.14.150:8085/sports/result-correct`, {
             headers: {
-                'x-igtechdiamondsports-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 },
             body: {
                 team_one: team_one,
@@ -322,6 +301,7 @@ app.post("/resulttwo", async (req, res) => {
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    
 });
 
 
