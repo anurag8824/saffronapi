@@ -371,7 +371,7 @@ const tabledata = async  ()=>{
         console.log("Fetched Data:", response);
     } catch (error) {
         console.error("Error fetching table list:", error.response?.data || error.message);
-        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+        // res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
     }
 
 }
@@ -446,8 +446,8 @@ app.get("/tablelist", async (req, res) => {
 
 app.get("/tabledata/:id",async(req,res)=>{
     const slug = req.params.id
-    const data = data[slug]
-    res.json(data)
+     const Cdata = data[slug]
+    res.json(Cdata)
 
 })
 
