@@ -44,6 +44,11 @@ app.get("/iframe/:id", async (req, res) => {
 
             }
         });
+
+         // Remove X-Frame-Options restriction
+         res.setHeader("X-Frame-Options", "");  // This removes the X-Frame-Options header
+         res.setHeader("Content-Security-Policy", "frame-ancestors *"); // Allow embedding in all origins
+         
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
