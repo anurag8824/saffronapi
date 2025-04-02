@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.get("/tablelist", async (req, res) => {
     try {
-        const response = await axios.get("http://45.198.14.150:8085/casino/tableid", {
+        const response = await axios.get("http://103.119.171.124:8085/casino/tableid", {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -38,7 +38,7 @@ app.get("/tablelist", async (req, res) => {
 app.get("/iframe/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/casino/tv_url?id=${casinoid}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/casino/tv_url?id=${casinoid}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -63,7 +63,7 @@ app.get("/iframe/:id", async (req, res) => {
 app.get("/tabledata/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/casino/data?type=${casinoid}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/casino/data?type=${casinoid}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -81,7 +81,7 @@ app.get("/tabledata/:id", async (req, res) => {
 app.get("/casinoresult/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/casino/result?type=${casinoid}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/casino/result?type=${casinoid}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -100,7 +100,7 @@ app.get("/detailresult/:id/:mid", async (req, res) => {
     const casinoid = req.params.id
     const mid = req.params.mid
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -120,7 +120,7 @@ app.get("/detailresult/:id/:mid", async (req, res) => {
 // //get all sportslist 
 app.get("/allSportsList", async (req, res) => {
     try {
-        const response = await axios.get("http://45.198.14.150:8085/sports/allSportid", {
+        const response = await axios.get("http://103.119.171.124:8085/sports/allSportid", {
                 headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -140,7 +140,7 @@ app.get("/gameDetails/:sid/:gmid", async (req, res) => {
 
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/getDetailsData?sid=${sportId}&gmid=${gameId}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/getDetailsData?sid=${sportId}&gmid=${gameId}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -160,7 +160,7 @@ app.get("/allMatchData/:sid/:gmid", async (req, res) => {
 
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/getPriveteData?sid=${sportId}&gmid=${gameId}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/getPriveteData?sid=${sportId}&gmid=${gameId}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -179,7 +179,7 @@ app.get("/allMatchUsingSports/:sid", async (req, res) => {
 
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/esid?sid=${sportId}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/esid?sid=${sportId}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -200,7 +200,7 @@ app.get("/liveTv/:gmid", async (req, res) => {
     const gameId = req.params.gmid
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/tv?gmid=${gameId}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/tv?gmid=${gameId}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -244,7 +244,7 @@ app.get("/allGameDetails", async (req, res) => {
 
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/tree`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/tree`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -265,7 +265,7 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
     const gtv = req.params.gtv
 
     try {
-        const response = await axios.get(`http://45.198.14.150:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
+        const response = await axios.get(`http://103.119.171.124:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 }
@@ -284,7 +284,7 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
 app.post("/resultone", async (req, res) => {
     const { team_one, team_two, sport_id } = req.body
     try {
-        const response = await axios.post(`http://45.198.14.150:8085/sports/result`, {
+        const response = await axios.post(`http://103.119.171.124:8085/sports/result`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 },
@@ -309,7 +309,7 @@ app.post("/resultone", async (req, res) => {
 app.post("/resulttwo", async (req, res) => {
     const { team_one, team_two, sport_id } = req.body
     try {
-        const response = await axios.post(`http://45.198.14.150:8085/sports/result-correct`, {
+        const response = await axios.post(`http://103.119.171.124:8085/sports/result-correct`, {
             headers: {
                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
                 },
@@ -363,7 +363,7 @@ app.listen(port, () => {
 
 // const tabledata = async  ()=>{
 //     try {
-//         const response = await axios.get("http://45.198.14.150:8085/casino/tableid", {
+//         const response = await axios.get("http://103.119.171.124:8085/casino/tableid", {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -389,9 +389,9 @@ app.listen(port, () => {
 //       try {
            
 //         const [tableDataResponse, iframeResponse, casinoResultResponse] = await Promise.all([
-//           axios.get(`http://45.198.14.150:8085/casino/data?type=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } }),
-//           axios.get(`http://45.198.14.150:8085/casino/tv_url?id=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } }),
-//           axios.get(`http://45.198.14.150:8085/casino/result?type=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } })
+//           axios.get(`http://103.119.171.124:8085/casino/data?type=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } }),
+//           axios.get(`http://103.119.171.124:8085/casino/tv_url?id=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } }),
+//           axios.get(`http://103.119.171.124:8085/casino/result?type=${type}`, { headers: { 'x-malyaempire-key': 'your-api-key' } })
 //         ]);
         
 //         return {
@@ -435,7 +435,7 @@ app.listen(port, () => {
 
 // app.get("/tablelist", async (req, res) => {
 //     try {
-//         const response = await axios.get("http://45.198.14.150:8085/casino/tableid", {
+//         const response = await axios.get("http://103.119.171.124:8085/casino/tableid", {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -459,7 +459,7 @@ app.listen(port, () => {
 // app.get("/iframe/:id", async (req, res) => {
 //     const casinoid = req.params.id
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/casino/tv_url?id=${casinoid}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/casino/tv_url?id=${casinoid}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -479,7 +479,7 @@ app.listen(port, () => {
 // app.get("/tabledata/:id", async (req, res) => {
 //     const casinoid = req.params.id
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/casino/data?type=${casinoid}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/casino/data?type=${casinoid}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -497,7 +497,7 @@ app.listen(port, () => {
 // app.get("/casinoresult/:id", async (req, res) => {
 //     const casinoid = req.params.id
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/casino/result?type=${casinoid}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/casino/result?type=${casinoid}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -516,7 +516,7 @@ app.listen(port, () => {
 //     const casinoid = req.params.id
 //     const mid = req.params.mid
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 
@@ -536,7 +536,7 @@ app.listen(port, () => {
 // // //get all sportslist 
 // app.get("/allSportsList", async (req, res) => {
 //     try {
-//         const response = await axios.get("http://45.198.14.150:8085/sports/allSportid", {
+//         const response = await axios.get("http://103.119.171.124:8085/sports/allSportid", {
 //                 headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -556,7 +556,7 @@ app.listen(port, () => {
 
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/getDetailsData?sid=${sportId}&gmid=${gameId}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/getDetailsData?sid=${sportId}&gmid=${gameId}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -576,7 +576,7 @@ app.listen(port, () => {
 
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/getPriveteData?sid=${sportId}&gmid=${gameId}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/getPriveteData?sid=${sportId}&gmid=${gameId}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -595,7 +595,7 @@ app.listen(port, () => {
 
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/esid?sid=${sportId}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/esid?sid=${sportId}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -616,7 +616,7 @@ app.listen(port, () => {
 //     const gameId = req.params.gmid
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/tv?gmid=${gameId}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/tv?gmid=${gameId}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -641,7 +641,7 @@ app.listen(port, () => {
 
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/tree`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/tree`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -662,7 +662,7 @@ app.listen(port, () => {
 //     const gtv = req.params.gtv
 
 //     try {
-//         const response = await axios.get(`http://45.198.14.150:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
+//         const response = await axios.get(`http://103.119.171.124:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 }
@@ -681,7 +681,7 @@ app.listen(port, () => {
 // app.post("/resultone", async (req, res) => {
 //     const { team_one, team_two, sport_id } = req.body
 //     try {
-//         const response = await axios.post(`http://45.198.14.150:8085/sports/result`, {
+//         const response = await axios.post(`http://103.119.171.124:8085/sports/result`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 },
@@ -706,7 +706,7 @@ app.listen(port, () => {
 // app.post("/resulttwo", async (req, res) => {
 //     const { team_one, team_two, sport_id } = req.body
 //     try {
-//         const response = await axios.post(`http://45.198.14.150:8085/sports/result-correct`, {
+//         const response = await axios.post(`http://103.119.171.124:8085/sports/result-correct`, {
 //             headers: {
 //                 'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
 //                 },
