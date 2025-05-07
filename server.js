@@ -217,6 +217,29 @@ app.get("/detailresult/:id/:mid", async (req, res) => {
 //sports api endpoints 
 // 
 // 
+
+// new sports endpoint 7 may 
+
+
+app.get("/allSportsList2", async (req, res) => {
+    try {
+        const response = await axios.get("https://api.cricketid.xyz/allSportid", {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching table list:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+    }
+});
+
+
+
+
+
 // //get all sportslist 
 app.get("/allSportsList", async (req, res) => {
     try {
@@ -232,6 +255,11 @@ app.get("/allSportsList", async (req, res) => {
         res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
     }
 });
+
+
+
+
+
 
 //get game detail 
 app.get("/gameDetails/:sid/:gmid", async (req, res) => {
@@ -252,6 +280,7 @@ app.get("/gameDetails/:sid/:gmid", async (req, res) => {
         res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
     }
 });
+
 
 //get all match data
 app.get("/allMatchData/:sid/:gmid", async (req, res) => {
