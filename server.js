@@ -17,6 +17,107 @@ app.get('/', (req, res) => {
 
 
 
+//new casino api latest 7 may
+
+
+app.get("/tablelist2", async (req, res) => {
+    try {
+        const response = await axios.get("https://api.cricketid.xyz/casino/tableid", {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching table list 22:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+    }
+});
+
+
+
+
+
+app.get("/tabledata2/:id", async (req, res) => {
+    const casinoid = req.params.id
+    try {
+        const response = await axios.get(`https://api.cricketid.xyz/casino/data?type=${casinoid}`, {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching casino data:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch casino data" });
+    }
+});
+
+
+app.get("/casinoresult2/:id", async (req, res) => {
+    const casinoid = req.params.id
+    try {
+        const response = await axios.get(`https://api.cricketid.xyz/casino/result?type=${casinoid}`, {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching casino result:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch casino result" });
+    }
+});
+
+
+
+app.get("/detailresult2/:id/:mid", async (req, res) => {
+    const casinoid = req.params.id
+    const mid = req.params.mid
+    try {
+        const response = await axios.get(`https://api.cricketid.xyz/casino/detail_result?type=${casinoid}&mid=${mid}`, {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching casino detail result:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch casino detail result" });
+    }
+});
+
+
+
+app.get("/iframe2/:id", async (req, res) => {
+    const casinoid = req.params.id
+    try {
+        const response = await axios.get(`https://api.cricketid.xyz/casino/tv_url?type=${casinoid}`, {
+            headers: {
+                'key': 'newdiamond36iuyIug9898',
+            }
+        });
+
+      
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching frame url:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch frame url" });
+    }
+});
+
+
+
+
+
+///old casino apij  ayeshhh
+
+
 
 app.get("/tablelist", async (req, res) => {
     try {
@@ -56,7 +157,6 @@ app.get("/iframe/:id", async (req, res) => {
         res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch frame url" });
     }
 });
-
 
 
 
