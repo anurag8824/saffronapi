@@ -255,7 +255,7 @@ app.post("/new/bets",async(req,res)=>{
         res.json(response.data);
         console.log("Fetched Data",response.data)
     }catch(err){
-        console.log("error in sending bets " error.response?.data || error .message)
+        console.log("error in sending bets " ,error.response?.data || error .message)
         res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
     }
 })
@@ -267,7 +267,7 @@ app.post("/new/result",async(req,res)=>{
         res.json(response.data);
         console.log("Fetched Data",response.data)
     }catch(err){
-        console.log("error in sending bets " error.response?.data || error .message)
+        console.log("error in sending bets " , error.response?.data || error .message)
         res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
     }
 })
