@@ -248,6 +248,29 @@ app.get("/allMatchData/:sid/:gmid", async (req, res) => {
     }
 });
 
+app.post("/new/bets",async(req,res)=>{
+    const {event_id,event_name,market_id,market_name,market_type} = req.body;
+    try{
+        const response = await axios.post(`https://api.cricketid.xyz/placed_bets?key=newdiamond36iuyIug9898`,{event_id,event_name,market_id,market_name,market_type})
+        res.json(response.data);
+        console.log("Fetched Data",response.data)
+    }catch(err){
+        console.log("error in sending bets " error.response?.data || error .message)
+        res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
+    }
+})
+
+app.post("/new/result",async(req,res)=>{
+    const {event_id,event_name,market_id,market_name} = req.body;
+    try{
+        const response = await axios.post(`https://api.cricketid.xyz/get-result?key=newdiamond36iuyIug9898`,{event_id,event_name,market_id,market_name})
+        res.json(response.data);
+        console.log("Fetched Data",response.data)
+    }catch(err){
+        console.log("error in sending bets " error.response?.data || error .message)
+        res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
+    }
+})
 // get all match using sport id
 app.get("/allMatchUsingSports/:sid", async (req, res) => {
     const sportId = req.params.sid
