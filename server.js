@@ -143,7 +143,7 @@ app.get("/iframe/:id", async (req, res) => {
 app.get("/tabledata/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://103.189.173.27:8085/casino/data?type=${casinoid}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/casino/data1?type=${casinoid}`, {
             headers: {
                 'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
