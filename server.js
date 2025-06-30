@@ -101,9 +101,9 @@ app.get("/iframe2/:id", async (req, res) => {
 
 app.get("/tablelist", async (req, res) => {
     try {
-        const response = await axios.get("http://103.189.172.148:8085/casino/tableid", {
+        const response = await axios.get("http://103.189.173.27:8085/casino/tableid", {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
             }
         });
@@ -119,9 +119,9 @@ app.get("/tablelist", async (req, res) => {
 app.get("/iframe/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/casino/tv_url?id=${casinoid}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/casino/tv_url?id=${casinoid}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
             }
         });
@@ -143,9 +143,9 @@ app.get("/iframe/:id", async (req, res) => {
 app.get("/tabledata/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/casino/data?type=${casinoid}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/casino/data?type=${casinoid}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
             }
         });
@@ -161,9 +161,9 @@ app.get("/tabledata/:id", async (req, res) => {
 app.get("/casinoresult/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/casino/result?type=${casinoid}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/casino/result?type=${casinoid}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
             }
         });
@@ -180,9 +180,9 @@ app.get("/detailresult/:id/:mid", async (req, res) => {
     const casinoid = req.params.id
     const mid = req.params.mid
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/casino/detail_result?type=${casinoid}&mid=${mid}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
 
             }
         });
@@ -341,9 +341,9 @@ app.get("/liveTv/:gmid", async (req, res) => {
     const gameId = req.params.gmid
 
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/sports/tv?gmid=${gameId}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/sports/tv?gmid=${gameId}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
                 }
         });
         res.json(response.data);
@@ -400,9 +400,9 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
     const gtv = req.params.gtv
 
     try {
-        const response = await axios.get(`http://103.189.172.148:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
+        const response = await axios.get(`http://103.189.173.27:8085/sports/score?sportid=${sportId}&gtv=${gtv}`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
                 }
         });
         res.json(response.data);
@@ -419,9 +419,9 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
 app.post("/resultone", async (req, res) => {
     const { team_one, team_two, sport_id } = req.body
     try {
-        const response = await axios.post(`http://103.189.172.148:8085/sports/result`, {
+        const response = await axios.post(`http://103.189.173.27:8085/sports/result`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
                 },
             body: {
                 team_one: team_one,
@@ -444,9 +444,9 @@ app.post("/resultone", async (req, res) => {
 app.post("/resulttwo", async (req, res) => {
     const { team_one, team_two, sport_id } = req.body
     try {
-        const response = await axios.post(`http://103.189.172.148:8085/sports/result-correct`, {
+        const response = await axios.post(`http://103.189.173.27:8085/sports/result-correct`, {
             headers: {
-                'x-malyaempire-key': '67976dfa6c0d3c07d8b3b1ff',
+                'x-turnkeyxgamingdiamond-key': '6860f05494d8ea25a1622f53',
                 },
             body: {
                 team_one: team_one,
