@@ -99,7 +99,7 @@ app.get("/iframe2/:id", async (req, res) => {
 
 
 
-app.get("/tablelist", async (req, res) => {
+app.get("/tablelist/infa", async (req, res) => {
     try {
         const response = await axios.get("https://diamondcasinoapi.turnkeyxgaming.com/casino/tableid", {
             headers: {
@@ -116,7 +116,7 @@ app.get("/tablelist", async (req, res) => {
 });
 
 
-app.get("/iframe/:id", async (req, res) => {
+app.get("/iframe/infa/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/tv_url?id=${casinoid}`, {
@@ -140,7 +140,7 @@ app.get("/iframe/:id", async (req, res) => {
 
 
 
-app.get("/tabledata/:id", async (req, res) => {
+app.get("/tabledata/infa/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/data1?type=${casinoid}`, {
@@ -158,7 +158,7 @@ app.get("/tabledata/:id", async (req, res) => {
 });
 
 
-app.get("/casinoresult/:id", async (req, res) => {
+app.get("/casinoresult/infa/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/result?type=${casinoid}`, {
@@ -176,7 +176,7 @@ app.get("/casinoresult/:id", async (req, res) => {
 });
 
 
-app.get("/detailresult/:id/:mid", async (req, res) => {
+app.get("/detailresult/infa/:id/:mid", async (req, res) => {
     const casinoid = req.params.id
     const mid = req.params.mid
     try {
