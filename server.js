@@ -463,6 +463,23 @@ app.post("/resulttwo", async (req, res) => {
 });
 
 
+//bet fair odds and manish ji 
+
+app.get("/oddsmanish/:eid", async (req, res) => {
+    const eventid = req.params.eid
+
+    try {
+        const response = await axios.get(`http://141.136.35.251:3000/api/market/marketDetails?sport_id=4&event_id=${eventid}`);
+        res.json(response.data);
+        console.log("Fetched Data:", response);
+    } catch (error) {
+        console.error("Error fetching table list:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+    }
+});
+
+
+
 
 
 
