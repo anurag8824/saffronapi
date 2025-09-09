@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.get("/tablelist2", async (req, res) => {
     try {
-        const response = await axios.get("https://api.cricketid.xyz/casino/tableid?key=newdiamond36iuyIug9898");
+        const response = await axios.get("https://api.cricketid.xyz/casino/tableid?key=reddyapikey1234");
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -38,7 +38,7 @@ app.get("/tablelist2", async (req, res) => {
 app.get("/tabledata2/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`https://api.cricketid.xyz/casino/data?type=${casinoid}&key=newdiamond36iuyIug9898`);
+        const response = await axios.get(`https://api.cricketid.xyz/casino/data?type=${casinoid}&key=reddyapikey1234`);
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -51,7 +51,7 @@ app.get("/tabledata2/:id", async (req, res) => {
 app.get("/casinoresult2/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`https://api.cricketid.xyz/casino/result?type=${casinoid}&key=newdiamond36iuyIug9898`);
+        const response = await axios.get(`https://api.cricketid.xyz/casino/result?type=${casinoid}&key=reddyapikey1234`);
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -66,7 +66,7 @@ app.get("/detailresult2/:id/:mid", async (req, res) => {
     const casinoid = req.params.id
     const mid = req.params.mid
     try {
-        const response = await axios.get(`https://api.cricketid.xyz/casino/detail_result?type=${casinoid}&mid=${mid}&key=newdiamond36iuyIug9898`);
+        const response = await axios.get(`https://api.cricketid.xyz/casino/detail_result?type=${casinoid}&mid=${mid}&key=reddyapikey1234`);
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -80,7 +80,7 @@ app.get("/detailresult2/:id/:mid", async (req, res) => {
 app.get("/iframe2/:id", async (req, res) => {
     const casinoid = req.params.id
     try {
-        const response = await axios.get(`https://api.cricketid.xyz/casino/tv_url?type=${casinoid}&key=newdiamond36iuyIug9898`);
+        const response = await axios.get(`https://api.cricketid.xyz/casino/tv_url?type=${casinoid}&key=reddyapikey1234`);
 
       
         res.json(response.data);
