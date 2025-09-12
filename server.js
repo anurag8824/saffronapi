@@ -103,7 +103,7 @@ app.get("/tablelist/infa", async (req, res) => {
     try {
         const response = await axios.get("https://diamondcasinoapi.turnkeyxgaming.com/casino/tableid", {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
 
             }
         });
@@ -121,7 +121,7 @@ app.get("/iframe/infa/:id", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/tv_url?id=${casinoid}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
 
             }
         });
@@ -145,7 +145,7 @@ app.get("/tabledata/infa/:id", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/data1?type=${casinoid}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
 
             }
         });
@@ -163,7 +163,7 @@ app.get("/casinoresult/infa/:id", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/result?type=${casinoid}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
 
             }
         });
@@ -182,7 +182,7 @@ app.get("/detailresult/infa/:id/:mid", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/casino/detail_result?type=${casinoid}&mid=${mid}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
 
             }
         });
@@ -343,7 +343,7 @@ app.get("/liveTv/:gmid", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/sports/tv?gmid=${gameId}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
                 }
         });
         res.json(response.data);
@@ -402,7 +402,7 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
     try {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/sports/score?sportid=${sportId}&gtv=${gtv}`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
                 }
         });
         res.json(response.data);
@@ -421,7 +421,7 @@ app.post("/resultone", async (req, res) => {
     try {
         const response = await axios.post(`https://diamondcasinoapi.turnkeyxgaming.com/sports/result`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
                 },
             body: {
                 team_one: team_one,
@@ -446,7 +446,7 @@ app.post("/resulttwo", async (req, res) => {
     try {
         const response = await axios.post(`https://diamondcasinoapi.turnkeyxgaming.com/sports/result-correct`, {
             headers: {
-                'x-turnkeyxgaming-key': '6860f05494d8ea25a1622f53',
+                'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
                 },
             body: {
                 team_one: team_one,
