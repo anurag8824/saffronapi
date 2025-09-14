@@ -483,7 +483,7 @@ app.get("/oddsmanish/:eid", async (req, res) => {
 
 app.get("/bxpro/v1/allmatch",async(req,res)=>{
     try {
-        const response = await axios.get('https://betfairapi.turnkeyxgaming.com/api/v3/front/4',{ headers: {
+        const response = await axios.get('https://betfairapi.turnkeyxgaming.com/api/v3/front?id =4',{ headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
                 },})
         res.json(response.data)
@@ -497,7 +497,7 @@ app.get("/bxpro/v1/allmatch",async(req,res)=>{
 app.get("/bxpro/v1/session/:eid",async(req,res)=>{
     const eventid = req.params.eid
     try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/GetSession/${eventid}`,{ headers: {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/GetSession?eventid =${eventid}`,{ headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
                 },})
         res.json(response.data)
