@@ -488,6 +488,7 @@ app.get("/bxpro/v1/allmatch",async(req,res)=>{
                 },})
         res.json(response.data)
     } catch (error) {
+        console.log(error)
                 res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
 
     }
@@ -501,6 +502,8 @@ app.get("/bxpro/v1/session/:eid",async(req,res)=>{
                 },})
         res.json(response.data)
     } catch (error) {
+                console.log(error)
+
                 res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
 
     }
