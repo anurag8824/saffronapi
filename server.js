@@ -481,6 +481,32 @@ app.get("/oddsmanish/:eid", async (req, res) => {
 
 
 
+app.get("/bxpro/v1/allmatch",async(req,res)=>{
+    try {
+        const response = await axios.get('https://betfairapi.turnkeyxgaming.comapi/v3/front/4',{ headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+                },})
+        res.json(response.data)
+    } catch (error) {
+                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
+
+app.get("/bxpro/v1/session/:eid",async(req,res)=>{
+    const eventid = req.params.eid
+    try {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.comapi/api/GetSession/${eventid}`,{ headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+                },})
+        res.json(response.data)
+    } catch (error) {
+                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
+
+
 
 
 
