@@ -510,6 +510,22 @@ app.get("/bxpro/v1/session/:eid",async(req,res)=>{
 })
 
 
+app.get("/bxpro/v1/result/:eid",async(req,res)=>{
+    const eventid = req.params.eid
+    try {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/result/event-result?eventid=${eventid}`,{ headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+                },})
+        res.json(response.data)
+    } catch (error) {
+                console.log(error)
+
+                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
+
+
 
 
 
