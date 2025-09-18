@@ -578,7 +578,22 @@ app.post("/bxpro/v1/bettodia", async (req, res) => {
 })
 
 
+app.get("/bxpro/v1/diamond-data/:eid", async (req, res) => {
+    const eventid = req.params.eid
+    try {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/api/GetMarketOdds?sportid=4&gmid=${eid}`, {
+            headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+            },
+        })
+        res.json(response.data)
+    } catch (error) {
+        console.log(error)
 
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
 
 
 // Set up the server to listen on port 3000
