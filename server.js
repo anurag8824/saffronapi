@@ -553,15 +553,20 @@ app.get("/bxpro/v1/result/:eid", async (req, res) => {
 app.post("/bxpro/v1/bettodia/", async (req, res) => {
     const eventid = req.body.matchname
     try {
-        const response = await axios.post(`https://betfairapi.turnkeyxgaming.com/api/v3/betfairtodiamond`, {
-            headers: {
-                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-            },  {
+        const response = await axios.post(
+            "https://betfairapi.turnkeyxgaming.com/api/v3/betfairtodiamond",
+            {
                 sportid: 4,
-                matchname:eventid
+                matchname: eventid
+            },
+            {
+                headers: {
+                    "x-turnkeyxgaming-key": "68c56ccbed10db48a50adc82",
+                    "Content-Type": "application/json"
+                }
             }
-        )
-        res.json(response.data)
+        );
+
     } catch (error) {
         console.log(error)
 
