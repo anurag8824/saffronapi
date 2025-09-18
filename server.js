@@ -10,6 +10,7 @@ app.use(cors({
     origin: "*",
 }));
 
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello, Express.js Added today 1039 </h1>');
