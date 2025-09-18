@@ -82,7 +82,7 @@ app.get("/iframe2/:id", async (req, res) => {
     try {
         const response = await axios.get(`https://api.cricketid.xyz/casino/tv_url?type=${casinoid}&key=reddyapikey1234`);
 
-      
+
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -126,10 +126,10 @@ app.get("/iframe/infa/:id", async (req, res) => {
             }
         });
 
-         // Remove X-Frame-Options restriction
-         res.setHeader("X-Frame-Options", "");  // This removes the X-Frame-Options header
-         res.setHeader("Content-Security-Policy", "frame-ancestors *"); // Allow embedding in all origins
-         
+        // Remove X-Frame-Options restriction
+        res.setHeader("X-Frame-Options", "");  // This removes the X-Frame-Options header
+        res.setHeader("Content-Security-Policy", "frame-ancestors *"); // Allow embedding in all origins
+
         res.json(response.data);
         console.log("Fetched Data:", response);
     } catch (error) {
@@ -248,27 +248,27 @@ app.get("/allMatchData/:sid/:gmid", async (req, res) => {
     }
 });
 
-app.post("/new/bets",async(req,res)=>{
-    const {event_id,event_name,market_id,market_name,market_type} = req.body;
-    try{
-        const response = await axios.post(`https://api.cricketid.xyz/placed_bets?key=newdiamond36iuyIug9898`,{event_id,event_name,market_id,market_name,market_type})
+app.post("/new/bets", async (req, res) => {
+    const { event_id, event_name, market_id, market_name, market_type } = req.body;
+    try {
+        const response = await axios.post(`https://api.cricketid.xyz/placed_bets?key=newdiamond36iuyIug9898`, { event_id, event_name, market_id, market_name, market_type })
         res.json(response.data);
-        console.log("Fetched Data",response.data)
-    }catch(err){
-        console.log("error in sending bets " ,error.response?.data || error .message)
-        res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
+        console.log("Fetched Data", response.data)
+    } catch (err) {
+        console.log("error in sending bets ", error.response?.data || error.message)
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to sending Bets" })
     }
 })
 
-app.post("/new/result",async(req,res)=>{
-    const {event_id,event_name,market_id,market_name} = req.body;
-    try{
-        const response = await axios.post(`https://api.cricketid.xyz/get-result?key=newdiamond36iuyIug9898`,{event_id,event_name,market_id,market_name})
+app.post("/new/result", async (req, res) => {
+    const { event_id, event_name, market_id, market_name } = req.body;
+    try {
+        const response = await axios.post(`https://api.cricketid.xyz/get-result?key=newdiamond36iuyIug9898`, { event_id, event_name, market_id, market_name })
         res.json(response.data);
-        console.log("Fetched Data",response.data)
-    }catch(err){
-        console.log("error in sending bets " , error.response?.data || error .message)
-        res.status(error.response?.status || 500).json({error : error.response?.data || "Failed to sending Bets"})
+        console.log("Fetched Data", response.data)
+    } catch (err) {
+        console.log("error in sending bets ", error.response?.data || error.message)
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to sending Bets" })
     }
 })
 // get all match using sport id
@@ -344,7 +344,7 @@ app.get("/liveTv/:gmid", async (req, res) => {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/sports/tv?gmid=${gameId}`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
-                }
+            }
         });
         res.json(response.data);
         console.log("Fetched Data:", response);
@@ -403,7 +403,7 @@ app.get("/sportsScore/:sid/:gtv", async (req, res) => {
         const response = await axios.get(`https://diamondcasinoapi.turnkeyxgaming.com/sports/score?sportid=${sportId}&gtv=${gtv}`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
-                }
+            }
         });
         res.json(response.data);
         console.log("Fetched Data:", response);
@@ -422,7 +422,7 @@ app.post("/resultone", async (req, res) => {
         const response = await axios.post(`https://diamondcasinoapi.turnkeyxgaming.com/sports/result`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
-                },
+            },
             body: {
                 team_one: team_one,
                 team_two: team_two,
@@ -447,7 +447,7 @@ app.post("/resulttwo", async (req, res) => {
         const response = await axios.post(`https://diamondcasinoapi.turnkeyxgaming.com/sports/result-correct`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c3e9924c8e609e14e54fa4',
-                },
+            },
             body: {
                 team_one: team_one,
                 team_two: team_two,
@@ -481,62 +481,91 @@ app.get("/oddsmanish/:eid", async (req, res) => {
 
 
 
-app.get("/bxpro/v1/allmatch",async(req,res)=>{
+app.get("/bxpro/v1/allmatch", async (req, res) => {
     try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/v3/front?id=4`,{ headers: {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/v3/front?id=4`, {
+            headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-                },})
+            },
+        })
         res.json(response.data)
     } catch (error) {
         console.log(error)
-                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
 
     }
 })
 
-app.get("/bxpro/v1/session/:eid",async(req,res)=>{
+app.get("/bxpro/v1/session/:eid", async (req, res) => {
     const eventid = req.params.eid
     try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/GetSession?eventid=${eventid}`,{ headers: {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/GetSession?eventid=${eventid}`, {
+            headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-                },})
+            },
+        })
         res.json(response.data)
     } catch (error) {
-                console.log(error)
+        console.log(error)
 
-                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
-
-    }
-})
-
-
-app.get("/bxpro/v1/result/:eid",async(req,res)=>{
-    const eventid = req.params.eid
-    try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/result/event-result?eventid=${eventid}`,{ headers: {
-                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-                },})
-        res.json(response.data)
-    } catch (error) {
-                console.log(error)
-
-                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
 
     }
 })
 
 
-app.get("/bxpro/v1/result/:eid",async(req,res)=>{
+app.get("/bxpro/v1/result/:eid", async (req, res) => {
     const eventid = req.params.eid
     try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/api/GetMarketOdds?eventid=${eventid}`,{ headers: {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/result/event-result?eventid=${eventid}`, {
+            headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-                },})
+            },
+        })
         res.json(response.data)
     } catch (error) {
-                console.log(error)
+        console.log(error)
 
-                res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
+
+
+app.get("/bxpro/v1/result/:eid", async (req, res) => {
+    const eventid = req.params.eid
+    try {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/api/GetMarketOdds?eventid=${eventid}`, {
+            headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+            },
+        })
+        res.json(response.data)
+    } catch (error) {
+        console.log(error)
+
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+    }
+})
+
+
+app.post("/bxpro/v1/bettodia/:eid", async (req, res) => {
+    const eventid = req.params.eid
+    try {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/v3/betfairtodiamond`, {
+            headers: {
+                'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
+            }, data: {
+                sportid: 4,
+                matchname:eid
+            }
+        })
+        res.json(response.data)
+    } catch (error) {
+        console.log(error)
+
+        res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
 
     }
 })
@@ -549,6 +578,6 @@ app.get("/bxpro/v1/result/:eid",async(req,res)=>{
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-    
+
 });
 
