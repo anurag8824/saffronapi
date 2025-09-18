@@ -556,11 +556,11 @@ app.post("/bxpro/v1/bettodia/", async (req, res) => {
         const response = await axios.post(`https://betfairapi.turnkeyxgaming.com/api/v3/betfairtodiamond`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
-            }, data: {
+            },  {
                 sportid: 4,
                 matchname:eventid
             }
-        })
+        )
         res.json(response.data)
     } catch (error) {
         console.log(error)
