@@ -581,7 +581,7 @@ app.post("/bxpro/v1/bettodia", async (req, res) => {
 app.get("/bxpro/v1/diamond-data/:eid", async (req, res) => {
     const eventid = req.params.eid
     try {
-        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/api/GetMarketOdds?sportid=4&gmid=${eventid}`, {
+        const response = await axios.get(`https://betfairapi.turnkeyxgaming.com/api/GetMarketOdds?sportid=4&gmid=${eventid}`, {
             headers: {
                 'x-turnkeyxgaming-key': '68c56ccbed10db48a50adc82',
             },
