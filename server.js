@@ -550,7 +550,7 @@ app.get("/bxpro/v1/result/:eid", async (req, res) => {
 })
 
 
-app.post("/bxpro/v1/bettodia/", async (req, res) => {
+app.post("/bxpro/v1/bettodia", async (req, res) => {
     const eventid = req.body.matchname
     try {
         const response = await axios.post(
