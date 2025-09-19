@@ -598,6 +598,7 @@ app.get("/bxpro/v1/diamond-data/:eid", async (req, res) => {
 
 app.post("/bxpro/v1/fancy-list", async (req, res) => {
     const eventid = req.body
+    console.log(eventid ,"event id is here")
     try {
         const response = await axios.post(`https://betfairapi.turnkeyxgaming.com/api/post-market`,eventid, {
             headers: {
