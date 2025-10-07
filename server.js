@@ -633,6 +633,44 @@ app.get("/bxpro/v1/fancy-result/:eid", async (req, res) => {
 })
 
 // Set up the server to listen on port 3000
+
+
+// Mac88 API Integration 
+
+
+app.get("/mac/tabledata/:gid/:tid",async(req,res)=>{
+    const gid = req.params.gid;
+    const tid = req.params.tid
+try {
+       const data = await axios.get(`http://89.116.20.218:6466/api/markets?gameid=${gid}&tableid=${tid}`)
+      res.json(data.data)
+    
+} catch (error) {
+    console.log(error,"error in Mac ")
+     res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+}})
+
+app.get("/mac/detailresult/:gid/:tid/:rid",async(req,res)=>{
+    const gid = req.params.gid;
+    const tid = req.params.tid
+    const rid = req.params.rid
+try {
+       const data = await axios.get(`http://89.116.20.218:6466/api/markets?gameid=${gid}&tableid=${tid}&roundid=${rid}`)
+      res.json(data.data)
+    
+} catch (error) {
+    console.log(error,"error in Mac ")
+     res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+}})
+
+
+
+
+
+
+
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
