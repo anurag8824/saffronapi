@@ -641,8 +641,10 @@ app.get("/bxpro/v1/fancy-result/:eid", async (req, res) => {
 app.get("/mac/tabledata/:gid/:tid",async(req,res)=>{
     const gid = req.params.gid;
     const tid = req.params.tid
+    console.log(gid,tid,"ghjkl")
 try {
        const data = await axios.get(`http://89.116.20.218:6466/api/markets?gameid=${gid}&tableid=${tid}`)
+       console.log(data.data)
       res.json(data.data)
     
 } catch (error) {
