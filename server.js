@@ -672,7 +672,6 @@ try {
 
 app.get("/mac/rounddata/:tid",async(req,res)=>{
     const tid = req.params.tid
-    console.log(gid,tid,"ghjkl")
 try {
        const data = await axios.get(`http://89.116.20.218:6466/api/latest-round-dlts?tableid=${tid}`)
        console.log(data.data)
