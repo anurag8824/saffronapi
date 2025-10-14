@@ -670,6 +670,20 @@ try {
 
 
 
+app.get("/mac/rounddata/:tid",async(req,res)=>{
+    const tid = req.params.tid
+    console.log(gid,tid,"ghjkl")
+try {
+       const data = await axios.get(`http://89.116.20.218:6466/api/latest-round-dlts?tableid=${tid}`)
+       console.log(data.data)
+      res.json(data.data)
+    
+} catch (error) {
+    console.log(error,"error in Mac ")
+     res.status(error.response?.status || 500).json({ error: error.response?.data || "Failed to fetch table list" });
+
+}})
+
 
 
 
