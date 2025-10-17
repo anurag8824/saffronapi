@@ -658,7 +658,7 @@ app.get("/mac/detailresult/:gid/:tid/:rid",async(req,res)=>{
     const tid = req.params.tid
     const rid = req.params.rid
 try {
-       const data = await axios.get(`http://89.116.20.218:6466/api/markets?gameid=${gid}&tableid=${tid}&roundid=${rid}`)
+       const data = await axios.get(`http://89.116.20.218:6466/api/result-details?gameid=${gid}&tableid=${tid}&roundid=${rid}`)
       res.json(data.data)
     
 } catch (error) {
